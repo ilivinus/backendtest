@@ -1,6 +1,6 @@
     - name: Build and deploy the Docker image
       env: 
-        HEROKU_API_KEY: 1d449fa0-a235-4479-820d-70327411fe00
+        HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
         APP_NAME: ${{ 'viveo' }}
       run: |
         docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
