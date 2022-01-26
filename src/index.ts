@@ -1,7 +1,6 @@
 import createError from 'http-errors';
 import express, { Request, Response, NextFunction } from 'express';
-import logger from 'morgan';
-import  * as debugObj from 'debug';
+import * as debugObj from 'debug';
 import http from 'http';
 import dbInit from './db/init';
 
@@ -11,15 +10,13 @@ dbInit();
 const debug = debugObj.debug('viveo-test:server');
 const app = express();
 
-
-app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/org', indexRouter);
 
 // catch 404 and forward to error handler
-app.use(function (req:Request, res:Response, next:NextFunction) {
+app.use(function (req: Request, res: Response, next: NextFunction) {
   next(createError(404));
 });
 

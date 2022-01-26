@@ -13,7 +13,7 @@ async function queryOrganisation(req: express.Request, res: express.Response, ne
     const pageSize = reqPageSize > 100 ? 100 : reqPageSize;
 
     const query: string = selectionQuery(req.query.name as string, page, pageSize);
-    const [relationships,_] = await sequelize.query(query);
+    const [relationships, _] = await sequelize.query(query);
 
     res.status(200).json(relationships)
   } catch (err: any) {

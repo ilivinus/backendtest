@@ -1,4 +1,4 @@
-const dd = {
+{
     "org_name": "Paradise Island",
     "daughters": [
         {
@@ -39,15 +39,3 @@ const dd = {
         }
     ]
 }
-const list  = []
-function listRelationship(relation,parent) {
-    for (const property of relation) {
-        list.push({parent: parent,child: property["org_name"]});
-        if(property["daughters"]){
-            listRelationship(property["daughters"],property["org_name"])
-        }
-    }
-
-}
-listRelationship([dd],null)
-console.log(list,"####")

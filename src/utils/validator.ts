@@ -22,8 +22,8 @@ export function validateGetReq(req: express.Request, res: express.Response, next
         isValid = false;
         errorMessage += "query [pageSize] missing"
     }
-    if (!isValid)  res.status(400).json({ error: errorMessage });
-     next();
+    if (!isValid) res.status(400).json({ error: errorMessage });
+    next();
 }
 
 export function validatePostReq(req: express.Request, res: express.Response, next: express.NextFunction) {
@@ -37,8 +37,8 @@ export function validatePostReq(req: express.Request, res: express.Response, nex
         isValid = false;
         errorMessage += 'input is invalid';
     }
-    if(!isValid)  res.status(400).json({error: errorMessage})
+    if (!isValid) res.status(400).json({ error: errorMessage })
     next();
 }
 
-export default {validateGetReq,validatePostReq}
+export default { validateGetReq, validatePostReq }

@@ -1,10 +1,12 @@
 
 import { Sequelize } from 'sequelize';
+import config from '../config';
 
-const sequel = new Sequelize('viveo_test','root','toor',{
-    dialect: 'mysql',
-    host:'localhost',
-    port:3306,
+let databaseConfigString = config.isDev ?
+    `mysql://${config.dbUserName}:${config.dbPassword}@${config.dbHost}:${config.dbPort}/${config.databaseName}`
+    : config.databaseString;
+console.log(databaseConfigString)
+const sequel = new Sequelize(databaseConfigString, {
     logging: console.log,
     dialectOptions: {
         multipleStatements: true
