@@ -25,6 +25,7 @@ app.use(function (
     err: { message: string; status: number },
     req: Request,
     res: Response,
+    next: NextFunction
 ) {
     // set locals, only providing error in development
     res.locals.message = err.message

@@ -2,6 +2,7 @@ import express from 'express'
 import sequelize from '../db/connection'
 import { buildRelationshipQuery, selectionQuery } from '../db/querybuilder'
 import { beautifyError } from '../utils'
+import { Organisation, Relationship } from '../db/models'
 async function queryOrganisation(
     req: express.Request,
     res: express.Response,
@@ -43,4 +44,23 @@ async function createOrganisation(
         next(beautifyError(err))
     }
 }
-export default { queryOrganisation, createOrganisation }
+
+/**
+ * This clears the database and it is for testing purpose
+ */
+async function databaseClear(
+    req: express.Request,
+    res: express.Response,
+    next: express.NextFunction
+) {
+    try {
+        await Promise.all([
+            Organisation.destroy({ where: {}, truncate: true }),
+            Relationship.destroy({ where: {}, truncate: true }),
+        ])
+        res.sendStatus(200)
+    } catch (err: any) {
+        next(err)
+    }
+}
+export default { queryOrganisation, createOrganisation, databaseClear }

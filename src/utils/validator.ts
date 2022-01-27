@@ -16,17 +16,11 @@ export function validateGetReq(
         isValid = false
         errorMessage += 'query [name] missing'
     }
-    if (
-        !req.query['page'] &&
-        !isNaN(parseInt(req.query.page as string))
-    ) {
+    if (!req.query['page'] && !isNaN(parseInt(req.query.page as string))) {
         isValid = false
         errorMessage += 'query [page] missing'
     }
-    if (
-        !req.query['pageSize'] &&
-        !isNaN(parseInt(req.query.page as string))
-    ) {
+    if (!req.query['pageSize'] && !isNaN(parseInt(req.query.page as string))) {
         isValid = false
         errorMessage += 'query [pageSize] missing'
     }

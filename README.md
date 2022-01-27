@@ -18,6 +18,15 @@ local GET: http://localhost:3000/org?name=black banana&page=1&pageSize=100
 online GET: https://viveo.herokuapp.com/org?name=black banana&page=1&pageSize=100
 ```
 
+- To clear DB (for testing purpose)
+
+```
+local GET: http://localhost:3000/org/cleardb
+
+online GET: https://viveo.herokuapp.com/org/cleardb
+
+```
+
 ### Tech stack used
 
 -   Node.js with express.js
