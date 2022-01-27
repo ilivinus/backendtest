@@ -1,4 +1,8 @@
-export default function selectionQuery(org_name: string, page: number,pageSize: number) {
+export default function selectionQuery(
+    org_name: string,
+    page: number,
+    pageSize: number
+) {
     return `
     SELECT relationship_type, org_name FROM organisation org
 	INNER JOIN

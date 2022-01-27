@@ -1,16 +1,15 @@
+import { Sequelize } from 'sequelize'
+import config from '../config'
 
-import { Sequelize } from 'sequelize';
-import config from '../config';
-
-let databaseConfigString = config.isDev ?
-    `mysql://${config.dbUserName}:${config.dbPassword}@${config.dbHost}:${config.dbPort}/${config.databaseName}`
-    : config.databaseString;
+const databaseConfigString = config.isDev
+    ? `mysql://${config.dbUserName}:${config.dbPassword}@${config.dbHost}:${config.dbPort}/${config.databaseName}`
+    : config.databaseString
 console.log(databaseConfigString)
 const sequel = new Sequelize(databaseConfigString, {
     logging: console.log,
     dialectOptions: {
-        multipleStatements: true
-    }
-});
+        multipleStatements: true,
+    },
+})
 
-export default sequel;
+export default sequel
